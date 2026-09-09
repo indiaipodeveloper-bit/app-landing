@@ -1,0 +1,900 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #000;
+  color: #fff;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   BACKGROUND VIDEO
+========================================= */
+
+.hero-video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 0;
+
+  background: #050505;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.25) 35%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+/* Additional subtle vignette */
+
+.hero-overlay::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(
+    circle at center,
+    transparent 20%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  position: relative;
+  top: 10%;
+  z-index: 5;
+
+  width: min(900px, 90%);
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: -20px;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.logo {
+  display: block;
+
+  width: clamp(70px, 10vw, 100px);
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   TAGLINE
+========================================= */
+
+.tagline {
+  max-width: 850px;
+
+  font-size: clamp(42px, 6vw, 82px);
+
+  line-height: 1.02;
+
+  letter-spacing: -3px;
+
+  font-weight: 700;
+
+  color: #fff;
+
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+}
+
+.tagline span {
+  display: block;
+
+  color: #ffcc33;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-description {
+  max-width: 600px;
+
+  margin-top: 25px;
+
+  font-size: clamp(15px, 1.4vw, 18px);
+
+  line-height: 1.6;
+
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   APP STORE BUTTONS
+========================================= */
+
+.app-buttons {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 36px;
+}
+
+.store-button {
+  display: block;
+
+  height: 70px;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.store-button img {
+  display: block;
+
+  height: 100%;
+
+  width: auto;
+}
+
+.store-button:hover {
+  transform: translateY(-3px);
+
+  opacity: 0.9;
+}
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.scroll-indicator {
+  position: absolute;
+
+  z-index: 5;
+
+  bottom: 30px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 11px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  font-size: 20px;
+
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero-content {
+    width: 88%;
+
+    margin-top: -10px;
+  }
+
+  .logo-wrapper {
+    margin-bottom: 28px;
+  }
+
+  .logo {
+    width: 170px;
+  }
+
+  .tagline {
+    font-size: clamp(38px, 11vw, 58px);
+
+    letter-spacing: -2px;
+
+    line-height: 1.04;
+  }
+
+  .hero-description {
+    max-width: 420px;
+
+    margin-top: 20px;
+
+    font-size: 15px;
+
+    line-height: 1.55;
+  }
+
+  .app-buttons {
+    margin-top: 30px;
+
+    gap: 10px;
+  }
+
+  .store-button {
+    height: 50px;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+  .hero {
+    min-height: 580px;
+  }
+
+  .logo {
+    width: 145px;
+  }
+
+  .tagline {
+    font-size: 38px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .app-buttons {
+    flex-direction: row;
+
+    width: 100%;
+  }
+
+  .store-button {
+    height: 40px;
+  }
+}
+
+/* =========================================
+   SECTION 2 — IPO DISCOVERY / STATS
+========================================= */
+
+.ipo-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 900px;
+
+  background: #f7f7f4;
+
+  color: #111;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.ipo-section-inner {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1180px, 88%);
+
+  margin: 0 auto;
+
+  padding: 150px 0 120px;
+}
+
+/* =========================================
+   STORY
+========================================= */
+
+.ipo-story {
+  position: relative;
+
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 24px;
+
+  color: #a17b00;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2.8px;
+
+  text-transform: uppercase;
+}
+
+.ipo-story h2 {
+  margin: 0;
+
+  font-size: clamp(58px, 7vw, 100px);
+
+  line-height: 0.94;
+
+  letter-spacing: -5px;
+
+  font-weight: 700;
+
+  color: #111;
+}
+
+.ipo-story h2 span {
+  display: block;
+
+  color: #d29d00;
+}
+
+.ipo-story-description {
+  max-width: 650px;
+
+  margin: 38px auto 0;
+
+  color: #666;
+
+  font-size: clamp(16px, 1.4vw, 19px);
+
+  line-height: 1.7;
+
+  font-weight: 400;
+}
+
+/* =========================================
+   FLOATING PNG ASSETS
+========================================= */
+
+.ipo-floating-assets {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ipo-float {
+  position: absolute;
+
+  display: block;
+
+  width: 60px;
+
+  height: 60px;
+
+  object-fit: contain;
+
+  opacity: 0;
+
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.1));
+
+  animation:
+    ipoAppear 0.8s ease forwards,
+    ipoFloat 5s ease-in-out infinite;
+}
+
+/* Top left */
+
+.ipo-float-1 {
+  top: 18%;
+
+  left: 10%;
+
+  width: 76px;
+
+  height: 76px;
+
+  animation-delay: 0.2s, 1s;
+}
+
+/* Top right */
+
+.ipo-float-2 {
+  top: 14%;
+
+  right: 12%;
+
+  width: 82px;
+
+  height: 82px;
+
+  animation-delay: 0.4s, 1.5s;
+}
+
+/* Middle left */
+
+.ipo-float-3 {
+  top: 47%;
+
+  left: 4%;
+
+  width: 58px;
+
+  height: 58px;
+
+  animation-delay: 0.6s, 0.5s;
+}
+
+/* Middle right */
+
+.ipo-float-4 {
+  top: 43%;
+
+  right: 6%;
+
+  width: 50px;
+
+  height: 50px;
+
+  animation-delay: 0.8s, 2s;
+}
+
+/* Bottom right */
+
+.ipo-float-5 {
+  bottom: 20%;
+
+  right: 18%;
+
+  width: 70px;
+
+  height: 70px;
+
+  animation-delay: 1s, 1.2s;
+}
+
+/* =========================================
+   FLOAT ANIMATION
+========================================= */
+
+@keyframes ipoAppear {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px) scale(0.8);
+  }
+
+  to {
+    opacity: 0.85;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ipoFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(6px, -10px, 0) rotate(2deg);
+  }
+
+  50% {
+    transform: translate3d(-4px, -18px, 0) rotate(-2deg);
+  }
+
+  75% {
+    transform: translate3d(-8px, -7px, 0) rotate(1deg);
+  }
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.ipo-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 0;
+
+  max-width: 1000px;
+
+  margin: 110px auto 0;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.ipo-stat {
+  position: relative;
+
+  padding: 48px 30px;
+
+  text-align: center;
+}
+
+.ipo-stat:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  top: 25%;
+
+  right: 0;
+
+  width: 1px;
+
+  height: 50%;
+
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.ipo-stat-number {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  color: #111;
+
+  font-size: clamp(42px, 5vw, 70px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  font-weight: 700;
+}
+
+.ipo-stat-number span:last-child {
+  color: #d29d00;
+
+  font-size: 0.55em;
+
+  margin-left: 2px;
+}
+
+.ipo-stat p {
+  margin-top: 13px;
+
+  color: #777;
+
+  font-size: 13px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   BOTTOM STATEMENT
+========================================= */
+
+.ipo-bottom-line {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  margin-top: 75px;
+}
+
+.ipo-bottom-line p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: clamp(16px, 1.7vw, 21px);
+
+  line-height: 1.4;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+.ipo-bottom-line strong {
+  color: #111;
+
+  font-weight: 700;
+}
+
+.ipo-line {
+  width: 60px;
+
+  height: 1px;
+
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .ipo-section {
+    min-height: auto;
+  }
+
+  .ipo-section-inner {
+    width: 88%;
+
+    padding: 105px 0 90px;
+  }
+
+  .ipo-story {
+    text-align: left;
+  }
+
+  .section-eyebrow {
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+  }
+
+  .ipo-story h2 {
+    font-size: clamp(48px, 13vw, 70px);
+
+    letter-spacing: -3px;
+  }
+
+  .ipo-story-description {
+    margin-top: 25px;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+  }
+
+  /* Floating assets */
+
+  .ipo-float-1 {
+    top: 10%;
+
+    left: 3%;
+
+    width: 45px;
+
+    height: 45px;
+  }
+
+  .ipo-float-2 {
+    top: 12%;
+
+    right: 5%;
+
+    width: 52px;
+
+    height: 52px;
+  }
+
+  .ipo-float-3 {
+    top: 37%;
+
+    left: 1%;
+
+    width: 38px;
+
+    height: 38px;
+  }
+
+  .ipo-float-4 {
+    top: 40%;
+
+    right: 2%;
+
+    width: 35px;
+
+    height: 35px;
+  }
+
+  .ipo-float-5 {
+    bottom: 29%;
+
+    right: 5%;
+
+    width: 48px;
+
+    height: 48px;
+  }
+
+  /* Stats */
+
+  .ipo-stats {
+    grid-template-columns: 1fr;
+
+    margin-top: 70px;
+  }
+
+  .ipo-stat {
+    padding: 32px 20px;
+  }
+
+  .ipo-stat:not(:last-child)::after {
+    top: auto;
+
+    bottom: 0;
+
+    right: 10%;
+
+    width: 80%;
+
+    height: 1px;
+  }
+
+  .ipo-stat-number {
+    font-size: 52px;
+  }
+
+  /* Bottom */
+
+  .ipo-bottom-line {
+    margin-top: 55px;
+
+    gap: 15px;
+  }
+
+  .ipo-bottom-line p {
+    font-size: 16px;
+
+    white-space: normal;
+  }
+
+  .ipo-line {
+    display: none;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+  .ipo-section-inner {
+    padding: 85px 0 70px;
+  }
+
+  .ipo-story h2 {
+    font-size: 45px;
+
+    letter-spacing: -2px;
+  }
+
+  .ipo-story-description {
+    font-size: 15px;
+  }
+
+  .ipo-stat-number {
+    font-size: 45px;
+  }
+
+  .ipo-stat p {
+    font-size: 11px;
+  }
+}

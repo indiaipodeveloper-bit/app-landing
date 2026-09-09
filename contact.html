@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>IndiaIPO — India's First IPO Execution App</title>
+
+    <link rel="stylesheet" href="contact.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <!-- =========================================
+        SECTION 1 - HERO SECTION
+    ========================================= -->
+    <section class="hero">
+      <!-- Background Video -->
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="hero-poster.jpg"
+      >
+        <source src="assets/hero-video.webm" type="video/webm" />
+      </video>
+
+      <!-- Dark cinematic overlay -->
+      <div class="hero-overlay"></div>
+
+      <!-- Hero Content -->
+      <section class="hero-content">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+          <img src="assets/logo.png" alt="IndiaIPO" class="logo" />
+        </div>
+
+        <!-- Tagline -->
+        <h1 class="tagline">
+          India's First
+          <span>IPO Execution App.</span>
+        </h1>
+
+        <!-- Supporting text -->
+        <p class="hero-description">
+          Your gateway to IPOs, market insights and opportunities shaping
+          India's financial future.
+        </p>
+
+        <!-- App buttons -->
+        <div class="app-buttons">
+          <!-- App Store -->
+          <a
+            href="#"
+            class="store-button"
+            id="appStoreButton"
+            aria-label="Download IndiaIPO on the App Store"
+          >
+            <img src="assets/app-store.png" alt="Download on the App Store" />
+          </a>
+
+          <!-- Google Play -->
+          <a
+            href="#"
+            class="store-button"
+            id="playStoreButton"
+            aria-label="Get IndiaIPO on Google Play"
+          >
+            <img src="assets/google-play.png" alt="Get it on Google Play" />
+          </a>
+        </div>
+      </section>
+
+      <!-- Bottom scroll indicator -->
+      <div class="scroll-indicator">
+        <span style="display: flex; gap: 5px">
+          Explore IndiaIPO
+          <img width="15px" src="assets/down-arrow.svg" alt="down-arrow" />
+        </span>
+      </div>
+    </section>
+
+    <!-- =========================================
+        SECTION 2 — IPO DISCOVERY / STATS
+    ========================================= -->
+
+    <section class="ipo-section">
+      <!-- Floating visual elements -->
+      <div class="ipo-floating-assets" aria-hidden="true">
+        <!-- <img src="assets/ipo-file.png" alt="" class="ipo-float ipo-float-1" /> -->
+
+        <img src="assets/chart-up.png" alt="" class="ipo-float ipo-float-2" />
+
+        <img src="assets/rupee.png" alt="" class="ipo-float ipo-float-3" />
+
+        <img src="assets/ipo-start.png" alt="" class="ipo-float ipo-float-4" />
+
+        <!-- <img src="assets/stock-arrow.png" alt="" class="ipo-float ipo-float-5" /> -->
+      </div>
+
+      <div class="ipo-section-inner">
+        <!-- Main statement -->
+
+        <div class="ipo-story">
+          <span class="section-eyebrow"> THE FUTURE OF IPO INVESTING </span>
+
+          <h2>
+            IPO investing,
+            <span>made simpler.</span>
+          </h2>
+
+          <p class="ipo-story-description">
+            From discovering the next big opportunity to executing your
+            application, IndiaIPO brings the entire IPO journey into one
+            seamless experience.
+          </p>
+        </div>
+
+        <!-- Stats -->
+
+        <div class="ipo-stats">
+          <!-- Stat 1 -->
+
+          <div class="ipo-stat">
+            <div class="ipo-stat-number">
+              <span class="counter" data-target="100">0</span><span>+</span>
+            </div>
+
+            <p>IPOs tracked</p>
+          </div>
+
+          <!-- Stat 2 -->
+
+          <div class="ipo-stat">
+            <div class="ipo-stat-number">
+              <span class="counter" data-target="500000">0</span><span>+</span>
+            </div>
+
+            <p>Investors empowered</p>
+          </div>
+
+          <!-- Stat 3 -->
+
+          <div class="ipo-stat">
+            <div class="ipo-stat-number">
+              <span class="counter" data-target="1000">0</span><span>+</span>
+            </div>
+
+            <p>IPO insights delivered</p>
+          </div>
+        </div>
+
+        <!-- Bottom statement -->
+
+        <div class="ipo-bottom-line">
+          <span class="ipo-line"></span>
+
+          <p>
+            Built for investors who want to move
+            <strong>before the market moves.</strong>
+          </p>
+
+          <span class="ipo-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
