@@ -101,3 +101,104 @@ const statsObserver = new IntersectionObserver(
 if (statsSection) {
   statsObserver.observe(statsSection);
 }
+
+/* =========================================
+   SECTION 3 — APP SHOWCASE ANIMATION
+========================================= */
+
+const appFeaturesSection = document.querySelector(".app-features-section");
+
+if (appFeaturesSection) {
+  const appFeaturesObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          appFeaturesSection.classList.add("is-visible");
+
+          // Run only once
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    },
+  );
+
+  appFeaturesObserver.observe(appFeaturesSection);
+}
+
+/* =========================================
+   SECTION 4 — PREMIUM ANIMATION
+========================================= */
+
+const premiumSection = document.querySelector(".premium-section");
+
+if (premiumSection) {
+  const premiumObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          premiumSection.classList.add("is-visible");
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    },
+  );
+
+  premiumObserver.observe(premiumSection);
+}
+
+/* =========================================
+   SECTION 5 — ECOSYSTEM ANIMATION
+========================================= */
+
+const ecosystemSection = document.querySelector(".ecosystem-section");
+
+if (ecosystemSection) {
+  const ecosystemObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          ecosystemSection.classList.add("is-visible");
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    },
+  );
+
+  ecosystemObserver.observe(ecosystemSection);
+}
+
+/* =========================================
+   SECTION 6 — DOWNLOAD APP ANIMATION
+========================================= */
+
+const downloadSection = document.querySelector(".download-section");
+
+if (downloadSection) {
+  const downloadObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          downloadSection.classList.add("is-visible");
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    },
+  );
+
+  downloadObserver.observe(downloadSection);
+}
