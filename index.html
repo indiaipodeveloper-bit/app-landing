@@ -6,7 +6,8 @@
 
     <title>INDIA IPO — India's First IPO Execution App</title>
 
-    <link rel="stylesheet" href="contact.css" />
+    <!-- <link rel="stylesheet" href="features.css" /> -->
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
@@ -40,7 +41,7 @@
         <!-- Tagline -->
         <h1 class="tagline">
           India's First
-          <span>IPO Execution App.</span>
+          <span>IPO Execution App</span>
         </h1>
 
         <!-- Supporting text -->
@@ -53,7 +54,8 @@
         <div class="app-buttons">
           <!-- App Store -->
           <a
-            href="#"
+            target="_blank"
+            href="https://apps.apple.com/us/app/india-ipo/id6753787520"
             class="store-button"
             id="appStoreButton"
             aria-label="Download INDIA IPO on the App Store"
@@ -63,7 +65,8 @@
 
           <!-- Google Play -->
           <a
-            href="#"
+            target="_blank"
+            href="https://play.google.com/store/apps/details?id=com.indiaipo&pcampaignid=web_share"
             class="store-button"
             id="playStoreButton"
             aria-label="Get INDIA IPO on Google Play"
@@ -74,19 +77,19 @@
       </section>
 
       <!-- Bottom scroll indicator -->
-      <div class="scroll-indicator">
+      <a href="#ipo-section" class="scroll-indicator scroll-bounce">
         <span style="display: flex; gap: 5px">
           Explore INDIA IPO
           <img width="15px" src="assets/down-arrow.svg" alt="down-arrow" />
         </span>
-      </div>
+      </a>
     </section>
 
     <!-- =========================================
         SECTION 2 — IPO DISCOVERY / STATS
     ========================================= -->
 
-    <section class="ipo-section">
+    <section id="ipo-section" class="ipo-section">
       <!-- Floating visual elements -->
       <div class="ipo-floating-assets" aria-hidden="true">
         <!-- <img src="assets/ipo-file.png" alt="" class="ipo-float ipo-float-1" /> -->
@@ -284,225 +287,294 @@
     </section>
 
     <!-- =========================================
-     SECTION 4 — INDIAIPO PREMIUM
+     SECTION 4 — INDIA IPO Features
 ========================================= -->
 
-    <section class="premium-section">
-      <!-- Decorative background -->
-      <div class="premium-pattern premium-pattern-left"></div>
-      <div class="premium-pattern premium-pattern-right"></div>
+    <!-- =========================================
+     SECTION — INDIA IPO FEATURES
+========================================= -->
 
-      <!-- Floating coins -->
-      <div class="premium-coin premium-coin-left">
-        <img src="assets/rupee.png" alt="" />
-      </div>
+    <section class="ipo-features-section" id="features">
+      <div class="ipo-features-container">
+        <!-- Heading -->
+        <div class="ipo-features-heading">
+          <span class="ipo-features-eyebrow">DISCOVER INDIA IPO</span>
 
-      <div class="premium-coin premium-coin-right">
-        <img src="assets/rupee.png" alt="" />
-      </div>
+          <h2>
+            Everything you need
+            <br />
+            <span>for your IPO journey.</span>
+          </h2>
 
-      <div class="premium-coin premium-coin-bottom">
-        <img src="assets/rupee.png" alt="" />
-      </div>
-
-      <div class="premium-content">
-        <!-- Small brand -->
-        <div class="premium-brand">
-          <span>INDIA IPO</span>
+          <p>
+            From understanding IPO readiness to navigating the listing process,
+            <br class="desktop-break" />
+            INDIA IPO brings the essential tools and guidance together.
+          </p>
         </div>
 
-        <!-- Main heading -->
-        <h2 class="premium-title">PREMIUM</h2>
+        <!-- Features Layout -->
+        <div class="ipo-features-layout">
+          <!-- =====================================
+           FEATURE HIGHLIGHT
+      ====================================== -->
 
-        <!-- Subtitle -->
-        <p class="premium-subtitle">
-          End-to-end support for your
-          <br />
-          company's growth journey
-        </p>
-
-        <!-- Benefits heading -->
-        <div class="premium-benefits-title">
-          <span>✦</span>
-          PREMIUM BENEFITS
-          <span>✦</span>
-        </div>
-
-        <!-- Benefits -->
-        <div class="premium-benefits">
-          <!-- Benefit 1 -->
-          <div class="premium-benefit">
-            <div class="premium-benefit-icon">
-              <img src="assets/ipo-start.png" alt="" />
+          <article class="ipo-feature-highlight">
+            <div class="ipo-feature-highlight-icon">
+              <img src="assets/chart-up.png" alt="" />
             </div>
 
-            <div class="premium-benefit-text">
-              <h3>Strategic Advisory</h3>
+            <div class="ipo-feature-highlight-content">
+              <span class="ipo-feature-label">01</span>
+
+              <h3>
+                IPO
+                <br />
+                Readiness
+              </h3>
 
               <p>
-                Clarity on eligibility, valuation,
-                <br />
-                structure and readiness
+                Understand where your business stands and what it takes to
+                become IPO ready.
               </p>
-            </div>
-          </div>
 
-          <!-- Benefit 2 -->
-          <div class="premium-benefit">
-            <div class="premium-benefit-icon">
-              <img src="assets/rupee.png" alt="" />
+              <a href="#" class="ipo-feature-link">
+                Explore
+                <span>→</span>
+              </a>
             </div>
+          </article>
 
-            <div class="premium-benefit-text">
-              <h3>Early Regulatory Guidance</h3>
+          <!-- =====================================
+           SUPPORTING FEATURES
+      ====================================== -->
 
-              <p>
-                Guidance from planning through
-                <br />
-                listing and beyond
-              </p>
-            </div>
+          <div class="ipo-feature-cards">
+            <!-- CARD 1 -->
+            <article class="ipo-feature-card">
+              <div class="ipo-feature-card-icon">
+                <img src="assets/rupee.png" alt="" />
+              </div>
+
+              <div>
+                <h3>Business Valuation</h3>
+
+                <p>
+                  Build clarity around your company's value and growth
+                  potential.
+                </p>
+              </div>
+
+              <span class="ipo-card-arrow">↗</span>
+            </article>
+
+            <!-- CARD 2 -->
+            <article class="ipo-feature-card">
+              <div class="ipo-feature-card-icon">
+                <img src="assets/ipo-start.png" alt="" />
+              </div>
+
+              <div>
+                <h3>IPO Consultancy</h3>
+
+                <p>
+                  Get expert guidance through planning, structuring and
+                  execution.
+                </p>
+              </div>
+
+              <span class="ipo-card-arrow">↗</span>
+            </article>
+
+            <!-- CARD 3 -->
+            <article class="ipo-feature-card">
+              <div class="ipo-feature-card-icon">
+                <img src="assets/chart-up.png" alt="" />
+              </div>
+
+              <div>
+                <h3>IPO Planning</h3>
+
+                <p>
+                  Create a structured roadmap for your company's public journey.
+                </p>
+              </div>
+
+              <span class="ipo-card-arrow">↗</span>
+            </article>
+
+            <!-- CARD 4 -->
+            <article class="ipo-feature-card">
+              <div class="ipo-feature-card-icon">
+                <img src="assets/logo.png" alt="" />
+              </div>
+
+              <div>
+                <h3>Regulatory Guidance</h3>
+
+                <p>
+                  Navigate important regulatory and compliance requirements with
+                  clarity.
+                </p>
+              </div>
+
+              <span class="ipo-card-arrow">↗</span>
+            </article>
+
+            <!-- CARD 5 -->
+            <article class="ipo-feature-card">
+              <div class="ipo-feature-card-icon">
+                <img src="assets/ipo-start.png" alt="" />
+              </div>
+
+              <div>
+                <h3>Listing Support</h3>
+
+                <p>
+                  Stay supported through the final stages of your IPO journey.
+                </p>
+              </div>
+
+              <span class="ipo-card-arrow">↗</span>
+            </article>
+
+            <!-- CARD 6 -->
+            <article class="ipo-feature-card">
+              <div class="ipo-feature-card-icon">
+                <img src="assets/chart-up.png" alt="" />
+              </div>
+
+              <div>
+                <h3>Business Insights</h3>
+
+                <p>
+                  Access relevant insights to make informed business decisions.
+                </p>
+              </div>
+
+              <span class="ipo-card-arrow">↗</span>
+            </article>
           </div>
         </div>
-
-        <!-- Optional CTA -->
-        <a href="#download" class="premium-button">
-          Explore Advisory Services
-          <span>→</span>
-        </a>
       </div>
     </section>
 
     <!-- =========================================
-     SECTION 5 — INDIAIPO FEATURES
+     SECTION 5 — INDIA IPO APP FEATURES
 ========================================= -->
 
-    <section class="ecosystem-section">
-      <div class="ecosystem-inner">
+    <section class="business-features-section" id="business-features">
+      <div class="business-features-container">
         <!-- Heading -->
-        <div class="ecosystem-heading">
+        <div class="business-features-heading">
+          <span class="business-features-eyebrow">INDIA IPO PLATFORM</span>
+
           <h2>
             Everything your business needs
             <br />
-            <span>to prepare for an IPO.</span>
+            <span>for its IPO journey.</span>
           </h2>
 
           <p>
-            Explore INDIA IPO's ecosystem of advisory services and resources
+            Powerful tools and expert-led services designed to help
             <br class="desktop-break" />
-            designed to simplify your company's journey to the public markets.
+            promoters prepare, execute and navigate their IPO journey.
           </p>
         </div>
 
         <!-- Feature Cards -->
-        <div class="ecosystem-cards">
-          <!-- =====================================
-           CARD 1 — ELIGIBILITY
-      ====================================== -->
+        <div class="business-features-grid">
+          <!-- CARD 1 -->
+          <a href="#" class="business-feature-card">
+            <div class="business-feature-card-back"></div>
 
-          <article class="ecosystem-card ecosystem-card-red">
-            <div class="ecosystem-icon">
-              <img src="assets/chart-up.png" alt="IPO Eligibility Assessment" />
+            <div class="business-feature-card-front">
+              <div class="business-feature-icon">
+                <img src="assets/chart-up.png" alt="" />
+              </div>
+
+              <h3>IPO Readiness</h3>
+
+              <p>
+                Understand your company's readiness before entering the IPO
+                process.
+              </p>
+
+              <!-- <span href="#" class="ecosystem-link">
+                Talk to an Expert
+                <span>›</span>
+              </span> -->
             </div>
+          </a>
 
-            <h3>
-              IPO Eligibility
-              <br />
-              Check
-            </h3>
+          <!-- CARD 2 -->
+          <a href="#" class="business-feature-card">
+            <div class="business-feature-card-back"></div>
 
-            <p>
-              Understand your company's readiness
-              <br />
-              before starting the IPO process.
-            </p>
+            <div class="business-feature-card-front">
+              <div class="business-feature-icon">
+                <img src="assets/rupee.png" alt="" />
+              </div>
 
-            <a href="#" class="ecosystem-link">
-              Check Eligibility
-              <span>›</span>
-            </a>
-          </article>
+              <h3>Business Valuation</h3>
 
-          <!-- =====================================
-           CARD 2 — CONSULTANCY
-      ====================================== -->
+              <p>
+                Build a clear understanding of your company's value and growth
+                potential.
+              </p>
 
-          <article class="ecosystem-card ecosystem-card-gold">
-            <div class="ecosystem-icon">
-              <img src="assets/ipo-start.png" alt="IPO Consultancy" />
+              <!-- <span href="#" class="ecosystem-link">
+                Talk to an Expert
+                <span>›</span>
+              </span> -->
             </div>
+          </a>
 
-            <h3>
-              Book
-              <br />
-              Consultancy
-            </h3>
+          <!-- CARD 3 -->
+          <a href="#" class="business-feature-card">
+            <div class="business-feature-card-back"></div>
 
-            <p>
-              Get personalised guidance from experienced
-              <br />
-              IPO and capital-market professionals.
-            </p>
+            <div class="business-feature-card-front">
+              <div class="business-feature-icon">
+                <img src="assets/ipo-start.png" alt="" />
+              </div>
 
-            <a href="#" class="ecosystem-link">
-              Talk to an Expert
-              <span>›</span>
-            </a>
-          </article>
+              <h3>IPO Consultancy</h3>
 
-          <!-- =====================================
-           CARD 3 — DAILY REPORTER
-      ====================================== -->
+              <p>
+                Get expert guidance across planning, structuring and IPO
+                execution.
+              </p>
 
-          <article class="ecosystem-card ecosystem-card-blue">
-            <div class="ecosystem-icon">
-              <img src="assets/chart-up.png" alt="Business Intelligence" />
+              <!-- <span href="#" class="ecosystem-link">
+                Talk to an Expert
+                <span>›</span>
+              </span> -->
             </div>
+          </a>
 
-            <h3>
-              Business
-              <br />
-              Intelligence
-            </h3>
+          <!-- CARD 4 -->
+          <a href="#" class="business-feature-card">
+            <div class="business-feature-card-back"></div>
 
-            <p>
-              Stay informed on IPO regulations,
-              <br />
-              market developments and business trends.
-            </p>
+            <div class="business-feature-card-front">
+              <div class="business-feature-icon">
+                <img src="assets/chart-up.png" alt="" />
+              </div>
 
-            <a href="#" class="ecosystem-link">
-              Explore Insights
-              <span>›</span>
-            </a>
-          </article>
+              <h3>Listing Support</h3>
 
-          <!-- =====================================
-           CARD 4 — MAGAZINES
-      ====================================== -->
+              <p>
+                Navigate the final stages of your IPO with structured execution
+                support.
+              </p>
 
-          <article class="ecosystem-card ecosystem-card-purple">
-            <div class="ecosystem-icon">
-              <img src="assets/ipo-start.png" alt="IPO World Magazines" />
+              <!-- <span href="#" class="ecosystem-link">
+                Talk to an Expert
+                <span>›</span>
+              </span> -->
             </div>
-
-            <h3>
-              INDIA IPO
-              <br />
-              Knowledge Hub
-            </h3>
-
-            <p>
-              Practical insights, expert perspectives and guidance
-              <br />
-              for promoters and growing businesses.
-            </p>
-
-            <a href="#" class="ecosystem-link">
-              Explore Resources
-              <span>›</span>
-            </a>
-          </article>
+          </a>
         </div>
       </div>
     </section>
@@ -537,14 +609,22 @@
 
           <!-- Store badges -->
           <div class="download-stores">
-            <a href="#" class="download-store">
+            <a
+              target="_blank"
+              href="https://play.google.com/store/apps/details?id=com.indiaipo&pcampaignid=web_share"
+              class="download-store"
+            >
               <img
                 src="assets/google-play.png"
                 alt="Download INDIA IPO on Google Play"
               />
             </a>
 
-            <a href="#" class="download-store">
+            <a
+              target="_blank"
+              href="https://apps.apple.com/us/app/india-ipo/id6753787520"
+              class="download-store"
+            >
               <img
                 src="assets/app-store.png"
                 alt="Download INDIA IPO on the App Store"
@@ -685,28 +765,50 @@
                 <img src="assets/instagram.svg" alt="" />
               </a>
 
-              <a href="#" aria-label="LinkedIn">
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/india-ipo/"
+                aria-label="LinkedIn"
+              >
                 <img src="assets/linkedin.svg" alt="" />
               </a>
 
-              <a href="#" aria-label="YouTube">
+              <a
+                target="_blank"
+                href="https://www.youtube.com/@IndiaIPOofficial"
+                aria-label="YouTube"
+              >
                 <img src="assets/youtube.svg" alt="" />
               </a>
 
-              <a href="#" aria-label="X">
+              <a
+                target="_blank"
+                href="https://www.facebook.com/01indiapo"
+                aria-label="facebook"
+              >
+                <img src="assets/facebook.svg" alt="" />
+              </a>
+
+              <a target="_blank" href="https://x.com/india_ipo1" aria-label="X">
                 <img src="assets/x.svg" alt="" />
               </a>
             </div>
 
             <div class="footer-store-buttons">
-              <a href="#">
+              <a
+                target="_blank"
+                href="https://apps.apple.com/us/app/india-ipo/id6753787520"
+              >
                 <img
                   src="assets/app-store.png"
                   alt="Download on the App Store"
                 />
               </a>
 
-              <a href="#">
+              <a
+                target="_blank"
+                href="https://play.google.com/store/apps/details?id=com.indiaipo&pcampaignid=web_share"
+              >
                 <img src="assets/google-play.png" alt="Get it on Google Play" />
               </a>
             </div>

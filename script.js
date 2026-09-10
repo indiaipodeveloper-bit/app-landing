@@ -132,42 +132,17 @@ if (appFeaturesSection) {
    SECTION 4 — PREMIUM ANIMATION
 ========================================= */
 
-const premiumSection = document.querySelector(".premium-section");
+const ipoFeaturesSection = document.querySelector(".ipo-features-section");
 
-if (premiumSection) {
-  const premiumObserver = new IntersectionObserver(
+if (ipoFeaturesSection) {
+  const ipoFeaturesObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          premiumSection.classList.add("is-visible");
+        if (!entry.isIntersecting) return;
 
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.2,
-    },
-  );
+        ipoFeaturesSection.classList.add("is-visible");
 
-  premiumObserver.observe(premiumSection);
-}
-
-/* =========================================
-   SECTION 5 — ECOSYSTEM ANIMATION
-========================================= */
-
-const ecosystemSection = document.querySelector(".ecosystem-section");
-
-if (ecosystemSection) {
-  const ecosystemObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          ecosystemSection.classList.add("is-visible");
-
-          observer.unobserve(entry.target);
-        }
+        observer.unobserve(entry.target);
       });
     },
     {
@@ -175,7 +150,42 @@ if (ecosystemSection) {
     },
   );
 
-  ecosystemObserver.observe(ecosystemSection);
+  ipoFeaturesObserver.observe(ipoFeaturesSection);
+}
+
+/* =========================================
+   SECTION 5 — ECOSYSTEM ANIMATION
+========================================= */
+
+const businessFeaturesSection = document.querySelector(
+  ".business-features-section",
+);
+
+if (businessFeaturesSection) {
+  const cards = businessFeaturesSection.querySelectorAll(
+    ".business-feature-card",
+  );
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add("is-visible");
+          }, index * 140);
+        });
+
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.15,
+    },
+  );
+
+  observer.observe(businessFeaturesSection);
 }
 
 /* =========================================

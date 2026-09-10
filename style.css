@@ -6,6 +6,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
 }
 
 html,
@@ -21,9 +25,6 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-
-  background: #000;
-  color: #fff;
 }
 
 /* =========================================
@@ -237,8 +238,6 @@ body {
 
   bottom: 30px;
 
-  left: 50%;
-
   transform: translateX(-50%);
 
   display: flex;
@@ -257,9 +256,7 @@ body {
   text-transform: uppercase;
 }
 
-.scroll-arrow {
-  font-size: 20px;
-
+.scroll-bounce {
   animation: scrollBounce 1.8s ease-in-out infinite;
 }
 
@@ -365,38 +362,48 @@ body {
 }
 
 /* =========================================
-   SECTION 2 — IPO DISCOVERY
+   SECTION 2 — IPO DISCOVERY / STATS
 ========================================= */
 
 .ipo-section {
   position: relative;
 
   width: 100%;
+  min-height: 900px;
 
   background: #f7f7f4;
 
   color: #111;
 
   overflow: hidden;
+
+  display: flex;
+  align-items: center;
 }
 
 /* =========================================
-   SECTION CONTAINER
+   CONTAINER
 ========================================= */
 
 .ipo-section-inner {
-  width: min(1200px, 90%);
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1180px, 88%);
 
   margin: 0 auto;
 
-  padding: 150px 0 130px;
+  padding: 150px 0 120px;
 }
 
 /* =========================================
-   INTRO
+   STORY
 ========================================= */
 
-.ipo-intro {
+.ipo-story {
+  position: relative;
+
   max-width: 850px;
 
   margin: 0 auto;
@@ -407,7 +414,7 @@ body {
 .section-eyebrow {
   display: inline-block;
 
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 
   color: #a17b00;
 
@@ -415,35 +422,35 @@ body {
 
   font-weight: 700;
 
-  letter-spacing: 2.5px;
+  letter-spacing: 2.8px;
 
   text-transform: uppercase;
 }
 
-.ipo-intro h2 {
+.ipo-story h2 {
   margin: 0;
 
-  font-size: clamp(48px, 6vw, 82px);
+  font-size: clamp(58px, 7vw, 100px);
 
-  line-height: 0.98;
+  line-height: 0.94;
 
-  letter-spacing: -4px;
+  letter-spacing: -5px;
 
   font-weight: 700;
 
   color: #111;
 }
 
-.ipo-intro h2 span {
+.ipo-story h2 span {
   display: block;
 
   color: #d29d00;
 }
 
-.ipo-intro p {
+.ipo-story-description {
   max-width: 650px;
 
-  margin: 32px auto 0;
+  margin: 38px auto 0;
 
   color: #666;
 
@@ -455,133 +462,288 @@ body {
 }
 
 /* =========================================
-   FEATURE CARDS
+   FLOATING PNG ASSETS
 ========================================= */
 
-.ipo-features {
+.ipo-floating-assets {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ipo-float {
+  position: absolute;
+
+  display: block;
+
+  width: 180px;
+
+  height: 180px;
+
+  object-fit: contain;
+
+  opacity: 0;
+
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.1));
+
+  animation:
+    ipoAppear 0.8s ease forwards,
+    ipoFloat 5s ease-in-out infinite;
+}
+
+/* Top left */
+
+.ipo-float-1 {
+  top: 18%;
+
+  left: 10%;
+
+  width: 100px;
+
+  height: 100px;
+
+  animation-delay: 0.2s, 1s;
+}
+
+/* Top right */
+
+.ipo-float-2 {
+  top: 14%;
+
+  right: 12%;
+
+  width: 150px;
+
+  height: 150px;
+
+  animation-delay: 0.4s, 1.5s;
+}
+
+/* Middle left */
+
+.ipo-float-3 {
+  top: 47%;
+
+  left: 4%;
+
+  width: 150px;
+
+  height: 150px;
+
+  animation-delay: 0.6s, 0.5s;
+}
+
+/* Middle right */
+
+.ipo-float-4 {
+  top: 43%;
+
+  right: 6%;
+
+  width: 100px;
+
+  height: 100px;
+
+  animation-delay: 0.8s, 2s;
+}
+
+/* Bottom right */
+
+.ipo-float-5 {
+  bottom: 20%;
+
+  right: 18%;
+
+  width: 70px;
+
+  height: 70px;
+
+  animation-delay: 1s, 1.2s;
+}
+
+/* =========================================
+   FLOAT ANIMATION
+========================================= */
+
+@keyframes ipoAppear {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px) scale(0.8);
+  }
+
+  to {
+    opacity: 0.85;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ipoFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate3d(6px, -10px, 0) rotate(2deg);
+  }
+
+  50% {
+    transform: translate3d(-4px, -18px, 0) rotate(-2deg);
+  }
+
+  75% {
+    transform: translate3d(-8px, -7px, 0) rotate(1deg);
+  }
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.ipo-stats {
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
 
-  gap: 20px;
+  gap: 0;
 
-  margin-top: 90px;
+  max-width: 1000px;
+
+  margin: 110px auto 0;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.ipo-feature {
+.ipo-stat {
   position: relative;
 
-  min-height: 280px;
+  padding: 48px 30px;
 
-  padding: 32px;
+  text-align: center;
+}
 
-  background: #fff;
+.ipo-stat:not(:last-child)::after {
+  content: "";
 
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  position: absolute;
 
-  border-radius: 24px;
+  top: 25%;
 
+  right: 0;
+
+  width: 1px;
+
+  height: 50%;
+
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.ipo-stat-number {
   display: flex;
 
-  flex-direction: column;
+  align-items: baseline;
 
-  justify-content: space-between;
+  justify-content: center;
 
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
+  color: #111;
 
-.ipo-feature:hover {
-  transform: translateY(-8px);
-
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-}
-
-/* =========================================
-   FEATURE NUMBER
-========================================= */
-
-.feature-number {
-  color: #c99700;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
-}
-
-/* =========================================
-   FEATURE CONTENT
-========================================= */
-
-.feature-content h3 {
-  margin-bottom: 14px;
-
-  font-size: 30px;
+  font-size: clamp(42px, 5vw, 70px);
 
   line-height: 1;
 
-  letter-spacing: -1px;
+  letter-spacing: -3px;
 
   font-weight: 700;
-
-  color: #111;
 }
 
-.feature-content p {
-  max-width: 300px;
+.ipo-stat-number span:last-child {
+  color: #d29d00;
+
+  font-size: 0.55em;
+
+  margin-left: 2px;
+}
+
+.ipo-stat p {
+  margin-top: 13px;
 
   color: #777;
 
-  font-size: 15px;
+  font-size: 13px;
 
-  line-height: 1.65;
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
 }
 
 /* =========================================
    BOTTOM STATEMENT
 ========================================= */
 
-.ipo-statement {
-  margin-top: 100px;
+.ipo-bottom-line {
+  display: flex;
 
-  padding-top: 45px;
+  align-items: center;
 
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  justify-content: center;
 
-  text-align: center;
+  gap: 25px;
+
+  margin-top: 75px;
 }
 
-.ipo-statement p {
+.ipo-bottom-line p {
   margin: 0;
 
-  color: #555;
+  color: #666;
 
-  font-size: clamp(18px, 2vw, 25px);
+  font-size: clamp(16px, 1.7vw, 21px);
 
   line-height: 1.4;
+
+  text-align: center;
+
+  white-space: nowrap;
 }
 
-.ipo-statement strong {
+.ipo-bottom-line strong {
   color: #111;
 
   font-weight: 700;
 }
 
+.ipo-line {
+  width: 60px;
+
+  height: 1px;
+
+  background: rgba(0, 0, 0, 0.15);
+}
+
 /* =========================================
-   SECTION 2 — MOBILE
+   MOBILE
 ========================================= */
 
 @media (max-width: 768px) {
+  .ipo-section {
+    min-height: auto;
+  }
+
   .ipo-section-inner {
     width: 88%;
 
-    padding: 100px 0 90px;
+    padding: 105px 0 90px;
   }
 
-  .ipo-intro {
+  .ipo-story {
     text-align: left;
   }
 
@@ -593,44 +755,116 @@ body {
     letter-spacing: 2px;
   }
 
-  .ipo-intro h2 {
-    font-size: clamp(44px, 12vw, 64px);
+  .ipo-story h2 {
+    font-size: clamp(48px, 13vw, 70px);
 
-    letter-spacing: -2.5px;
+    letter-spacing: -3px;
   }
 
-  .ipo-intro p {
-    margin-top: 24px;
+  .ipo-story-description {
+    margin-top: 25px;
 
     font-size: 16px;
 
     line-height: 1.6;
   }
 
-  .ipo-features {
+  /* Floating assets */
+
+  .ipo-float-1 {
+    top: 10%;
+
+    left: 3%;
+
+    width: 80px;
+
+    height: 80px;
+  }
+
+  .ipo-float-2 {
+    top: 12%;
+
+    right: 5%;
+
+    width: 80px;
+
+    height: 80px;
+  }
+
+  .ipo-float-3 {
+    top: 37%;
+
+    left: 1%;
+
+    width: 80px;
+
+    height: 80px;
+  }
+
+  .ipo-float-4 {
+    top: 40%;
+
+    right: 2%;
+
+    width: 60px;
+
+    height: 60px;
+  }
+
+  .ipo-float-5 {
+    bottom: 29%;
+
+    right: 5%;
+
+    width: 48px;
+
+    height: 48px;
+  }
+
+  /* Stats */
+
+  .ipo-stats {
     grid-template-columns: 1fr;
 
-    gap: 14px;
-
-    margin-top: 55px;
-  }
-
-  .ipo-feature {
-    min-height: 230px;
-
-    padding: 26px;
-  }
-
-  .feature-content h3 {
-    font-size: 27px;
-  }
-
-  .ipo-statement {
     margin-top: 70px;
+  }
 
-    padding-top: 35px;
+  .ipo-stat {
+    padding: 32px 20px;
+  }
 
-    text-align: left;
+  .ipo-stat:not(:last-child)::after {
+    top: auto;
+
+    bottom: 0;
+
+    right: 10%;
+
+    width: 80%;
+
+    height: 1px;
+  }
+
+  .ipo-stat-number {
+    font-size: 52px;
+  }
+
+  /* Bottom */
+
+  .ipo-bottom-line {
+    margin-top: 55px;
+
+    gap: 15px;
+  }
+
+  .ipo-bottom-line p {
+    font-size: 16px;
+
+    white-space: normal;
+  }
+
+  .ipo-line {
+    display: none;
   }
 }
 
@@ -640,32 +874,2469 @@ body {
 
 @media (max-width: 420px) {
   .ipo-section-inner {
-    padding: 80px 0 70px;
+    padding: 85px 0 70px;
   }
 
-  .ipo-intro h2 {
-    font-size: 43px;
+  .ipo-story h2 {
+    font-size: 45px;
 
     letter-spacing: -2px;
   }
 
-  .ipo-intro p {
+  .ipo-story-description {
     font-size: 15px;
   }
 
-  .ipo-feature {
-    min-height: 210px;
+  .ipo-stat-number {
+    font-size: 45px;
+  }
 
+  .ipo-stat p {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   SECTION 3 — WHAT'S WAITING FOR YOU
+========================================= */
+
+.app-features-section {
+  position: relative;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  padding: 125px 30px 0;
+
+  background: linear-gradient(180deg, #fff8f1 0%, #fff9f8 45%, #ffffff 100%);
+}
+
+.app-features-inner {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.app-features-heading {
+  text-align: center;
+
+  max-width: 760px;
+
+  margin: 0 auto;
+}
+
+.app-features-heading h2 {
+  margin: 0;
+
+  font-size: clamp(52px, 5.2vw, 78px);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 600;
+
+  color: #efc34b;
+}
+
+.app-features-heading h2 span {
+  color: #efc34b;
+}
+
+.app-features-heading p {
+  margin: 28px auto 0;
+
+  font-size: 20px;
+
+  line-height: 1.4;
+
+  letter-spacing: -0.01em;
+
+  color: #38527a;
+}
+
+/* =========================================
+   SHOWCASE
+========================================= */
+
+.app-showcase {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 1000px;
+
+  height: 520px;
+
+  margin: 35px auto 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+}
+
+/* =========================================
+   FEATURE COLUMNS
+========================================= */
+
+.feature-column {
+  position: absolute;
+
+  top: 10px;
+
+  width: 220px;
+
+  height: 320px;
+
+  z-index: 3;
+}
+
+.feature-column-left {
+  left: 30px;
+}
+
+.feature-column-right {
+  right: 30px;
+}
+
+/* =========================================
+   FEATURE CARDS
+========================================= */
+
+.feature-card {
+  position: absolute;
+
+  width: 106px;
+  height: 118px;
+
+  padding: 12px 8px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid rgba(220, 220, 220, 0.7);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.08),
+    0 2px 5px rgba(0, 0, 0, 0.04);
+
+  opacity: 0;
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.feature-card span {
+  font-size: 14px;
+
+  line-height: 1.1;
+
+  text-align: center;
+
+  color: #202c42;
+
+  font-weight: 500;
+}
+
+/* =========================================
+   FEATURE ICON
+========================================= */
+
+.feature-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   LEFT CARD POSITIONS
+========================================= */
+
+.feature-card-1 {
+  top: 10px;
+  left: 0;
+
+  transform: translateX(-50px);
+}
+
+.feature-card-2 {
+  top: 10px;
+  right: 0;
+
+  transform: translateX(50px);
+}
+
+.feature-card-3 {
+  bottom: 10px;
+  left: 20px;
+
+  transform: translateX(-50px);
+}
+
+.feature-card-4 {
+  bottom: -10px;
+  right: -10px;
+
+  transform: translateX(50px);
+}
+
+/* =========================================
+   RIGHT CARD POSITIONS
+========================================= */
+
+.feature-card-5 {
+  top: 10px;
+  left: 0;
+
+  transform: translateX(50px);
+}
+
+.feature-card-6 {
+  top: 10px;
+  right: 0;
+
+  transform: translateX(-50px);
+}
+
+.feature-card-7 {
+  bottom: 10px;
+  left: 20px;
+
+  transform: translateX(50px);
+}
+
+.feature-card-8 {
+  bottom: -10px;
+  right: -10px;
+
+  transform: translateX(-50px);
+}
+
+/* =========================================
+   CARD ACTIVE STATE
+========================================= */
+
+.app-features-section.is-visible .feature-card {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+/* Stagger */
+.app-features-section.is-visible .feature-card-1 {
+  transition-delay: 0.15s;
+}
+
+.app-features-section.is-visible .feature-card-2 {
+  transition-delay: 0.25s;
+}
+
+.app-features-section.is-visible .feature-card-3 {
+  transition-delay: 0.35s;
+}
+
+.app-features-section.is-visible .feature-card-4 {
+  transition-delay: 0.45s;
+}
+
+.app-features-section.is-visible .feature-card-5 {
+  transition-delay: 0.2s;
+}
+
+.app-features-section.is-visible .feature-card-6 {
+  transition-delay: 0.3s;
+}
+
+.app-features-section.is-visible .feature-card-7 {
+  transition-delay: 0.4s;
+}
+
+.app-features-section.is-visible .feature-card-8 {
+  transition-delay: 0.5s;
+}
+
+/* =========================================
+   PHONE
+========================================= */
+
+.app-device-wrapper {
+  position: relative;
+
+  z-index: 5;
+
+  width: 300px;
+
+  height: 550px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  overflow: visible;
+}
+
+.app-device {
+  position: relative;
+
+  width: 280px;
+  height: 560px;
+
+  padding: 9px;
+
+  background: #111;
+
+  border-radius: 43px;
+
+  box-shadow:
+    0 35px 60px rgba(0, 0, 0, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+
+  /*
+    Initial state:
+    phone is below the visible area
+    and slightly blurry.
+  */
+
+  opacity: 0;
+
+  filter: blur(10px);
+
+  transform: translateY(180px);
+
+  transition:
+    opacity 1s ease,
+    filter 1.2s ease,
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   PHONE ACTIVE
+========================================= */
+
+.app-features-section.is-visible .app-device {
+  opacity: 1;
+
+  filter: blur(0);
+
+  transform: translateY(0);
+}
+
+/* =========================================
+   PHONE SCREEN
+========================================= */
+
+.app-device-screen {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 35px;
+
+  background: #ffffff;
+}
+
+.app-device-screen img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================
+   PHONE DYNAMIC ISLAND / NOTCH
+========================================= */
+
+.app-device::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 10;
+
+  top: 16px;
+  left: 50%;
+
+  width: 88px;
+  height: 25px;
+
+  transform: translateX(-50%);
+
+  border-radius: 20px;
+
+  background: #050505;
+}
+
+/* =========================================
+   BOTTOM CURVE
+========================================= */
+
+.app-section-curve {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 50%;
+
+  bottom: -1px;
+
+  width: 125%;
+
+  height: 145px;
+
+  transform: translateX(-50%);
+
+  background: #ffffff;
+
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+  .app-features-section {
+    padding: 90px 20px 0;
+
+    min-height: 900px;
+  }
+
+  .app-features-heading {
+    max-width: 380px;
+  }
+
+  .app-features-heading h2 {
+    font-size: 48px;
+
+    line-height: 1;
+  }
+
+  .app-features-heading p {
+    margin-top: 22px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .app-showcase {
+    height: 580px;
+
+    margin-top: 45px;
+  }
+
+  /* Phone becomes the primary element */
+  .app-device-wrapper {
+    width: 245px;
+
+    height: 510px;
+  }
+
+  .app-device {
+    width: 235px;
+
+    height: 480px;
+
+    border-radius: 35px;
+
+    transform: translateY(150px);
+
+    filter: blur(12px);
+  }
+
+  .app-features-section.is-visible .app-device {
+    transform: translateY(0);
+  }
+
+  /* Smaller feature cards */
+
+  .feature-column {
+    width: 150px;
+
+    height: 300px;
+
+    top: 15px;
+  }
+
+  .feature-column-left {
+    left: -15px;
+  }
+
+  .feature-column-right {
+    right: -15px;
+  }
+
+  .feature-card {
+    width: 82px;
+
+    height: 92px;
+
+    border-radius: 15px;
+
+    padding: 7px;
+  }
+
+  .feature-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .feature-card span {
+    font-size: 11px;
+  }
+
+  .feature-card-1 {
+    left: 0;
+  }
+
+  .feature-card-2 {
+    right: 0;
+  }
+
+  .feature-card-3 {
+    left: 8px;
+  }
+
+  .feature-card-4 {
+    right: -2px;
+  }
+
+  .feature-card-5 {
+    left: 0;
+  }
+
+  .feature-card-6 {
+    right: 0;
+  }
+
+  .feature-card-7 {
+    left: 8px;
+  }
+
+  .feature-card-8 {
+    right: -2px;
+  }
+
+  .app-section-curve {
+    width: 180%;
+
+    height: 100px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+  .app-features-section {
+    padding-top: 75px;
+
+    min-height: 820px;
+  }
+
+  .app-features-heading h2 {
+    font-size: 40px;
+  }
+
+  .app-features-heading p {
+    font-size: 15px;
+  }
+
+  .app-showcase {
+    margin-top: 35px;
+
+    height: 500px;
+  }
+
+  .app-device {
+    width: 210px;
+
+    height: 430px;
+  }
+
+  .feature-column {
+    width: 125px;
+  }
+
+  .feature-card {
+    width: 72px;
+
+    height: 82px;
+  }
+
+  .feature-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .feature-card span {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .app-device,
+  .feature-card {
+    opacity: 1;
+
+    filter: none;
+
+    transform: none;
+
+    transition: none;
+  }
+}
+
+/* =========================================
+   SECTION 4 — INDIAIPO features
+========================================= */
+
+.ipo-features-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 40px 140px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.ipo-features-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.ipo-features-heading {
+  max-width: 850px;
+  margin-bottom: 65px;
+}
+
+.ipo-features-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #efc34b;
+}
+
+.ipo-features-heading h2 {
+  margin: 0;
+
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -2px;
+  font-weight: 700;
+
+  color: #17181c;
+}
+
+.ipo-features-heading h2 span {
+  color: #efc34b;
+}
+
+.ipo-features-heading p {
+  margin: 24px 0 0;
+
+  max-width: 700px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #6b7078;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.ipo-features-layout {
+  display: grid;
+
+  grid-template-columns: 1fr 1.5fr;
+
+  gap: 20px;
+
+  align-items: stretch;
+}
+
+/* =========================================
+   LARGE FEATURE
+========================================= */
+
+.ipo-feature-highlight {
+  position: relative;
+
+  min-height: 540px;
+
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(255, 174, 24, 0.16),
+      transparent 35%
+    ),
+    #fefbf0;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+/* Decorative circle */
+
+.ipo-feature-highlight::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 155, 24, 0.16);
+
+  transition: transform 0.7s ease;
+}
+
+.ipo-feature-highlight:hover {
+  transform: translateY(-7px);
+
+  box-shadow: 0 25px 60px rgba(42, 30, 15, 0.1);
+}
+
+.ipo-feature-highlight:hover::after {
+  transform: scale(1.2);
+}
+
+/* =========================================
+   HIGHLIGHT ICON
+========================================= */
+
+.ipo-feature-highlight-icon {
+  position: relative;
+  z-index: 2;
+
+  width: 66px;
+  height: 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.07);
+
+  transition: transform 0.4s ease;
+}
+
+.ipo-feature-highlight-icon img {
+  width: 34px;
+  height: 34px;
+
+  object-fit: contain;
+}
+
+.ipo-feature-highlight:hover .ipo-feature-highlight-icon {
+  transform: rotate(-5deg) scale(1.08);
+}
+
+/* =========================================
+   HIGHLIGHT CONTENT
+========================================= */
+
+.ipo-feature-highlight-content {
+  position: relative;
+  z-index: 2;
+}
+
+.ipo-feature-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  color: #efc34b;
+}
+
+.ipo-feature-highlight h3 {
+  margin: 0 0 18px;
+
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -1px;
+
+  color: #17181c;
+}
+
+.ipo-feature-highlight p {
+  max-width: 390px;
+
+  margin: 0 0 28px;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #666b73;
+}
+
+/* =========================================
+   HIGHLIGHT LINK
+========================================= */
+
+.ipo-feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  color: #efc34b;
+
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease;
+}
+
+.ipo-feature-link span {
+  transition: transform 0.3s ease;
+}
+
+.ipo-feature-link:hover {
+  gap: 12px;
+}
+
+.ipo-feature-link:hover span {
+  transform: translateX(3px);
+}
+
+/* =========================================
+   SUPPORTING CARDS
+========================================= */
+
+.ipo-feature-cards {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+/* FEATURE CARD */
+
+.ipo-feature-card {
+  position: relative;
+
+  min-height: 170px;
+
+  padding: 27px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Blue top accent */
+
+.ipo-feature-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 0;
+  height: 3px;
+
+  background: #efc34b;
+
+  transition: width 0.4s ease;
+}
+
+.ipo-feature-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(255, 147, 24, 0.35);
+
+  box-shadow: 0 18px 40px rgba(42, 35, 15, 0.08);
+}
+
+.ipo-feature-card:hover::before {
+  width: 100%;
+}
+
+/* CARD ICON */
+
+.ipo-feature-card-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #f5f7f9;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.ipo-feature-card-icon img {
+  width: 25px;
+  height: 25px;
+
+  object-fit: contain;
+}
+
+.ipo-feature-card:hover .ipo-feature-card-icon {
+  transform: translateY(-3px);
+
+  background: rgba(24, 181, 255, 0.09);
+}
+
+/* CARD CONTENT */
+
+.ipo-feature-card h3 {
+  margin: 20px 0 7px;
+
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 700;
+
+  color: #17181c;
+}
+
+.ipo-feature-card p {
+  margin: 0;
+
+  max-width: 270px;
+
+  font-size: 13px;
+  line-height: 1.55;
+
+  color: #747981;
+}
+
+/* CARD ARROW */
+
+.ipo-card-arrow {
+  position: absolute;
+
+  right: 22px;
+  bottom: 20px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f5f7f9;
+
+  font-size: 15px;
+
+  color: #efc34b;
+
+  opacity: 0;
+
+  transform: translate(-5px, 5px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.ipo-feature-card:hover .ipo-card-arrow {
+  opacity: 1;
+
+  transform: translate(0, 0);
+
+  background: rgba(24, 181, 255, 0.09);
+}
+
+/* SCROLL REVEAL */
+
+.ipo-feature-highlight,
+.ipo-feature-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.ipo-features-section.is-visible .ipo-feature-highlight {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ipo-features-section.is-visible .ipo-feature-card {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Stagger */
+
+.ipo-features-section.is-visible .ipo-feature-card:nth-child(1) {
+  transition-delay: 0.08s;
+}
+
+.ipo-features-section.is-visible .ipo-feature-card:nth-child(2) {
+  transition-delay: 0.14s;
+}
+
+.ipo-features-section.is-visible .ipo-feature-card:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.ipo-features-section.is-visible .ipo-feature-card:nth-child(4) {
+  transition-delay: 0.26s;
+}
+
+.ipo-features-section.is-visible .ipo-feature-card:nth-child(5) {
+  transition-delay: 0.32s;
+}
+
+.ipo-features-section.is-visible .ipo-feature-card:nth-child(6) {
+  transition-delay: 0.38s;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .ipo-features-section {
+    padding: 100px 30px 120px;
+  }
+
+  .ipo-features-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ipo-feature-highlight {
+    min-height: 420px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .ipo-features-section {
+    padding: 80px 20px 100px;
+  }
+
+  .ipo-features-heading {
+    margin-bottom: 45px;
+  }
+
+  .ipo-features-heading h2 {
+    font-size: 38px;
+    letter-spacing: -1px;
+  }
+
+  .ipo-features-heading p {
+    font-size: 15px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .ipo-feature-highlight {
+    min-height: 390px;
+
+    padding: 30px;
+    border-radius: 18px;
+  }
+
+  .ipo-feature-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .ipo-feature-card {
+    min-height: 155px;
     padding: 24px;
-
-    border-radius: 20px;
   }
 
-  .feature-content h3 {
-    font-size: 25px;
+  .ipo-feature-card h3 {
+    margin-top: 17px;
   }
 
-  .feature-content p {
+  /* Always show arrow on touch devices */
+
+  .ipo-card-arrow {
+    opacity: 1;
+
+    transform: translate(0, 0);
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+  .ipo-features-heading h2 {
+    font-size: 33px;
+  }
+
+  .ipo-feature-highlight h3 {
+    font-size: 32px;
+  }
+}
+
+/* =========================================
+   SECTION 5 — INDIAIPO features
+========================================= */
+
+.business-features-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 40px 60px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.business-features-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.business-features-heading {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 75px;
+}
+
+.business-features-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #ffa318;
+}
+
+.business-features-heading h2 {
+  margin: 0;
+
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+
+  color: #17181c;
+}
+
+.business-features-heading h2 span {
+  color: #ffa318;
+}
+
+.business-features-heading p {
+  max-width: 700px;
+  margin: 25px auto 0;
+
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+
+  color: #666b73;
+}
+
+/* =========================================
+   CARDS GRID
+========================================= */
+
+.business-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+
+  align-items: start;
+}
+
+/* =========================================
+   CARD WRAPPER
+========================================= */
+
+.business-feature-card {
+  position: relative;
+  height: 380px;
+
+  cursor: pointer;
+
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================
+   DARK BACK CARD
+========================================= */
+
+.business-feature-card-back {
+  position: absolute;
+  inset: 0;
+
+  background: #18191d;
+  border-radius: 12px;
+
+  transform: translateY(0);
+
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================
+   FRONT CARD
+========================================= */
+
+.business-feature-card-front {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: -25px;
+
+  padding: 38px 5px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 2px solid #ffa318;
+  border-radius: 11px;
+
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    background 0.45s ease;
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.business-feature-icon {
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 22px;
+
+  border-radius: 14px;
+
+  background: rgba(24, 181, 255, 0.08);
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease;
+}
+
+.business-feature-icon img {
+  width: 80px;
+  height: 80px;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.business-feature-card-front h3 {
+  margin: 0 0 14px;
+
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: #17181c;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.business-feature-card-front p {
+  margin: 0;
+
+  max-width: 230px;
+
+  font-size: 15px;
+  line-height: 1.65;
+
+  color: #62666d;
+}
+
+.ecosystem-link {
+  padding-top: 30px;
+  display: inline-flex;
+  align-items: center;
+  color: rgb(23, 32, 51);
+  font-size: 14px;
+  font-weight: 600;
+  gap: 5px;
+  text-decoration: none;
+  transition: gap 0.25s;
+}
+
+/* =========================================
+   HOVER INTERACTION
+========================================= */
+
+.business-feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.business-feature-card:hover .business-feature-card-front {
+  transform: translateY(-12px);
+
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.14);
+}
+
+.business-feature-card:hover .business-feature-card-back {
+  transform: translateY(5px);
+}
+
+.business-feature-card:hover .business-feature-icon {
+  transform: translateY(-4px) scale(1.05);
+
+  background: rgba(24, 181, 255, 0.14);
+}
+
+.business-feature-card:hover .business-feature-arrow {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   ACTIVE / CLICK FEEL
+========================================= */
+
+.business-feature-card:active {
+  transform: translateY(-3px) scale(0.99);
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .business-features-section {
+    padding: 100px 30px 130px;
+  }
+
+  .business-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px 25px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .business-features-section {
+    padding: 80px 20px 110px;
+  }
+
+  .business-features-heading {
+    margin-bottom: 55px;
+  }
+
+  .business-features-heading h2 {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .business-features-heading p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .business-features-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .business-feature-card {
+    height: 335px;
+  }
+
+  .business-feature-card-front {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: -20px;
+
+    padding: 34px 25px 28px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+  .business-features-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .business-features-heading h2 {
+    font-size: 32px;
+  }
+
+  .business-feature-card {
+    height: 320px;
+  }
+}
+
+/* =========================================
+   SECTION 6 — DOWNLOAD APP
+========================================= */
+
+.download-section {
+  position: relative;
+
+  padding: 120px 30px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.download-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 1240px;
+
+  min-height: 520px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  border: 2px solid #fff2e0;
+
+  background: linear-gradient(135deg, #fefffa 0%, #fbfff1 100%);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   BACKGROUND DECORATION
+========================================= */
+
+.download-decoration {
+  position: absolute;
+
+  z-index: 0;
+
+  width: 800px;
+  height: 800px;
+
+  right: -160px;
+  bottom: -520px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(239, 162, 75, 0.15);
+
+  box-shadow:
+    0 0 0 100px rgba(75, 239, 116, 0.025),
+    0 0 0 200px rgba(75, 239, 212, 0.02),
+    0 0 0 300px rgba(75, 127, 239, 0.015);
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.download-content {
+  position: relative;
+
+  z-index: 3;
+
+  width: 55%;
+
+  padding-left: 100px;
+}
+
+.download-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  color: #efb64b;
+}
+
+.download-content h2 {
+  margin: 0;
+
+  font-size: clamp(45px, 4vw, 64px);
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+
+  font-weight: 650;
+
+  color: #111827;
+}
+
+.download-content h2 span {
+  color: #efb64b;
+}
+
+.download-content p {
+  margin: 24px 0 0;
+
+  font-size: 19px;
+
+  line-height: 1.45;
+
+  color: #52617a;
+}
+
+/* =========================================
+   STORE BUTTONS
+========================================= */
+
+.download-stores {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+.download-store {
+  display: block;
+
+  transition: transform 0.3s ease;
+}
+
+.download-store img {
+  display: block;
+
+  width: 175px;
+
+  height: auto;
+}
+
+.download-store:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   PHONE
+========================================= */
+
+.download-phone-wrapper {
+  position: absolute;
+
+  z-index: 4;
+
+  right: 20px;
+  bottom: -85px;
+
+  width: 390px;
+}
+
+.download-phone {
+  position: relative;
+  top: 100px;
+  width: 360px;
+  height: 650px;
+
+  padding: 10px;
+
+  border-radius: 48px;
+
+  background: #101010;
+
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+
+  transform: translateY(130px);
+
+  filter: blur(7px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1s ease;
+}
+
+/* =========================================
+   PHONE ACTIVE
+========================================= */
+
+.download-section.is-visible .download-phone {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  filter: blur(0);
+}
+
+/* =========================================
+   PHONE SCREEN
+========================================= */
+
+.download-phone-screen {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 39px;
+
+  background: #ffffff;
+
+  padding: 75px 20px 30px;
+}
+
+/* =========================================
+   PHONE NOTCH
+========================================= */
+
+.download-phone::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 10;
+
+  top: 17px;
+  left: 50%;
+
+  width: 100px;
+  height: 27px;
+
+  transform: translateX(-50%);
+
+  border-radius: 20px;
+
+  background: #050505;
+}
+
+/* =========================================
+   QR HEADING
+========================================= */
+
+.qr-heading {
+  text-align: center;
+}
+
+.qr-heading h3 {
+  margin: 0;
+
+  font-size: 23px;
+
+  font-weight: 650;
+
+  letter-spacing: -0.03em;
+
+  color: #192238;
+}
+
+.qr-heading p {
+  margin: 8px 0 0;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  color: #68738a;
+}
+
+/* =========================================
+   QR CONTAINER
+========================================= */
+
+.qr-container {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 32px;
+}
+
+/* =========================================
+   QR ITEM
+========================================= */
+
+.qr-item {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.qr-item > span {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #29344a;
+}
+
+/* =========================================
+   QR CODE
+========================================= */
+
+.qr-code {
+  width: 125px;
+  height: 125px;
+
+  padding: 8px;
+
+  background: #ffffff;
+
+  border: 1px solid #f1d9dd;
+
+  border-radius: 14px;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.qr-code img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .download-container {
+    min-height: 800px;
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .download-content {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .download-phone-wrapper {
+    position: absolute;
+
+    right: 50%;
+
+    /* bottom: -150px; */
+
+    transform: translateX(50%);
+
+    width: 330px;
+  }
+
+  .download-phone {
+    width: 330px;
+
+    height: 600px;
+  }
+
+  .qr-code {
+    width: 105px;
+
+    height: 105px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .download-section {
+    padding: 80px 18px 0;
+  }
+
+  .download-container {
+    min-height: 750px;
+
+    justify-content: flex-start;
+
+    border-radius: 24px;
+  }
+
+  .download-content {
+    width: 100%;
+
+    padding: 55px 25px 0;
+
+    text-align: center;
+  }
+
+  .download-eyebrow {
+    font-size: 10px;
+  }
+
+  .download-content h2 {
+    font-size: 37px;
+  }
+
+  .download-content p {
+    font-size: 15px;
+
+    line-height: 1.5;
+  }
+
+  .download-stores {
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+  }
+
+  .download-store img {
+    width: 135px;
+  }
+
+  /* Phone */
+
+  .download-phone-wrapper {
+    position: absolute;
+
+    right: 50%;
+
+    bottom: -150px;
+
+    transform: translateX(50%);
+
+    width: 330px;
+  }
+
+  .download-phone {
+    width: 330px;
+
+    height: 600px;
+
+    border-radius: 37px;
+
+    padding: 8px;
+
+    transform: translateY(100px);
+  }
+
+  .download-section.is-visible .download-phone {
+    transform: translateY(0);
+  }
+
+  .download-phone-screen {
+    border-radius: 30px;
+
+    padding: 55px 12px 20px;
+  }
+
+  .download-phone::before {
+    top: 13px;
+
+    width: 75px;
+
+    height: 21px;
+  }
+
+  .qr-heading h3 {
+    font-size: 19px;
+  }
+
+  .qr-heading p {
+    font-size: 12px;
+  }
+
+  .qr-container {
+    gap: 8px;
+
+    margin-top: 25px;
+  }
+
+  .qr-code {
+    width: 100px;
+
+    height: 100px;
+
+    padding: 6px;
+
+    border-radius: 10px;
+  }
+
+  .qr-item > span {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+  .download-container {
+    min-height: 850px;
+  }
+
+  .download-content {
+    padding-left: 18px;
+
+    padding-right: 18px;
+  }
+
+  .download-content h2 {
+    font-size: 37px;
+  }
+
+  .download-content p {
     font-size: 14px;
+  }
+
+  .download-store img {
+    width: 120px;
+  }
+
+  .download-phone-wrapper {
+    width: 245px;
+    bottom: -20px;
+  }
+
+  .download-phone {
+    width: 245px;
+
+    height: 460px;
+  }
+
+  .qr-code {
+    width: 88px;
+
+    height: 88px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .download-phone {
+    opacity: 1;
+
+    transform: none;
+
+    filter: none;
+
+    transition: none;
+  }
+}
+
+/* =========================================
+   SECTION 7 — FOOTER
+========================================= */
+
+.site-footer {
+  position: relative;
+
+  background: #050505;
+
+  color: #ffffff;
+
+  padding: 90px 30px 35px;
+
+  overflow: hidden;
+}
+
+.footer-inner {
+  width: 100%;
+
+  max-width: 1240px;
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   FOOTER TOP
+========================================= */
+
+.footer-top {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr
+    1fr
+    1fr
+    1.25fr;
+
+  gap: 45px;
+
+  padding-bottom: 70px;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.footer-brand {
+  padding-right: 30px;
+}
+
+.footer-logo {
+  display: inline-block;
+}
+
+.footer-logo img {
+  display: block;
+
+  width: 150px;
+
+  height: auto;
+
+  /*
+    Your logo asset may have a dark/light version.
+    If the existing logo is dark, replace it with
+    footer-logo.png.
+  */
+}
+
+.footer-brand p {
+  max-width: 210px;
+
+  margin: 20px 0 0;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  color: #7d8493;
+}
+
+/* =========================================
+   FOOTER COLUMNS
+========================================= */
+
+.footer-column {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.footer-column h3,
+.footer-social h3 {
+  margin: 0 0 16px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #ffffff;
+}
+
+.footer-column a {
+  width: fit-content;
+
+  margin-bottom: 11px;
+
+  color: #737b8c;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  line-height: 1.35;
+
+  transition: color 0.25s ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+}
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.footer-social {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.social-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #3a3d44;
+
+  border-radius: 50%;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.social-links a:hover {
+  border-color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.social-links img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* =========================================
+   STORE BUTTONS
+========================================= */
+
+.footer-store-buttons {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.footer-store-buttons a {
+  display: block;
+
+  width: fit-content;
+}
+
+.footer-store-buttons img {
+  display: block;
+
+  width: 165px;
+
+  height: auto;
+
+  transition: transform 0.25s ease;
+}
+
+.footer-store-buttons a:hover img {
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   FOOTER DIVIDER
+========================================= */
+
+.footer-bottom {
+  padding-top: 20px;
+
+  border-top: 1px solid #25272d;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  color: #626976;
+}
+
+.footer-disclaimer {
+  max-width: 650px;
+
+  text-align: right;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+
+    row-gap: 50px;
+  }
+
+  .footer-brand {
+    grid-column: span 3;
+  }
+
+  .footer-social {
+    grid-column: span 3;
+  }
+
+  .footer-store-buttons {
+    flex-direction: row;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .site-footer {
+    padding: 70px 22px 25px;
+  }
+
+  .footer-top {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 45px 25px;
+
+    padding-bottom: 50px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+
+    padding-right: 0;
+  }
+
+  .footer-logo img {
+    width: 130px;
+  }
+
+  .footer-brand p {
+    margin-top: 15px;
+
+    font-size: 13px;
+  }
+
+  .footer-column h3,
+  .footer-social h3 {
+    font-size: 14px;
+  }
+
+  .footer-column a {
+    font-size: 13px;
+
+    margin-bottom: 10px;
+  }
+
+  .footer-social {
+    grid-column: span 2;
+  }
+
+  .footer-store-buttons {
+    flex-direction: row;
+
+    gap: 10px;
+  }
+
+  .footer-store-buttons img {
+    width: 140px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
+
+  .footer-disclaimer {
+    max-width: none;
+
+    text-align: left;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+  .footer-store-buttons img {
+    width: 125px;
+  }
+
+  .social-links {
+    gap: 7px;
   }
 }

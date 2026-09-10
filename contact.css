@@ -6,6 +6,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 html,
@@ -237,8 +241,6 @@ body {
 
   bottom: 30px;
 
-  left: 50%;
-
   transform: translateX(-50%);
 
   display: flex;
@@ -257,9 +259,7 @@ body {
   text-transform: uppercase;
 }
 
-.scroll-arrow {
-  font-size: 20px;
-
+.scroll-bounce {
   animation: scrollBounce 1.8s ease-in-out infinite;
 }
 
@@ -1635,18 +1635,8 @@ body {
 
 .premium-brand {
   margin-bottom: 8px;
-}
-
-.premium-brand span {
-  font-size: 25px;
-
-  font-weight: 700;
-
-  font-style: italic;
-
-  letter-spacing: -0.04em;
-
-  color: #ffffff;
+  display: flex;
+  justify-content: center;
 }
 
 /* =========================================
@@ -2662,6 +2652,7 @@ body {
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
   gap: 18px;
 
@@ -2695,7 +2686,7 @@ body {
 
   z-index: 4;
 
-  right: 105px;
+  right: 20px;
   bottom: -85px;
 
   width: 390px;
@@ -2884,17 +2875,28 @@ body {
 
 @media (max-width: 1000px) {
   .download-container {
-    min-height: 560px;
+    min-height: 800px;
+    display: flex;
+
+    flex-direction: column;
   }
 
   .download-content {
-    padding-left: 60px;
-
-    width: 55%;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
   }
 
   .download-phone-wrapper {
-    right: 35px;
+    position: absolute;
+
+    right: 50%;
+
+    /* bottom: -150px; */
+
+    transform: translateX(50%);
+
+    width: 330px;
   }
 
   .download-phone {
@@ -2920,11 +2922,7 @@ body {
   }
 
   .download-container {
-    min-height: 850px;
-
-    display: flex;
-
-    flex-direction: column;
+    min-height: 750px;
 
     justify-content: flex-start;
 
@@ -2944,7 +2942,7 @@ body {
   }
 
   .download-content h2 {
-    font-size: 43px;
+    font-size: 37px;
   }
 
   .download-content p {
@@ -2976,13 +2974,13 @@ body {
 
     transform: translateX(50%);
 
-    width: 270px;
+    width: 330px;
   }
 
   .download-phone {
-    width: 270px;
+    width: 330px;
 
-    height: 500px;
+    height: 600px;
 
     border-radius: 37px;
 
@@ -3044,7 +3042,7 @@ body {
 
 @media (max-width: 400px) {
   .download-container {
-    min-height: 790px;
+    min-height: 850px;
   }
 
   .download-content {
@@ -3066,7 +3064,8 @@ body {
   }
 
   .download-phone-wrapper {
-    bottom: -140px;
+    width: 245px;
+    bottom: -20px;
   }
 
   .download-phone {
@@ -3268,13 +3267,7 @@ body {
 .social-links img {
   width: 14px;
   height: 14px;
-
   object-fit: contain;
-
-  /*
-    Useful if your SVG icons are black.
-  */
-  filter: invert(1);
 }
 
 /* =========================================
