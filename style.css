@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #f3991e;
+  --black: #111;
+  --light-gray: #f7f7f4;
+  --dark-gray: #666;
+}
+
 /* =========================================
    RESET
 ========================================= */
@@ -61,7 +68,7 @@ body {
 
   z-index: 0;
 
-  background: #050505;
+  background: var(--black);
 }
 
 /* =========================================
@@ -164,7 +171,7 @@ body {
 .tagline span {
   display: block;
 
-  color: #ffcc33;
+  color: var(--primary-color);
 }
 
 /* =========================================
@@ -371,9 +378,9 @@ body {
   width: 100%;
   min-height: 900px;
 
-  background: #f7f7f4;
+  background: var(--light-gray);
 
-  color: #111;
+  color: var(--black);
 
   overflow: hidden;
 
@@ -416,9 +423,9 @@ body {
 
   margin-bottom: 24px;
 
-  color: #a17b00;
+  color: var(--primary-color);
 
-  font-size: 11px;
+  font-size: 14px;
 
   font-weight: 700;
 
@@ -432,19 +439,19 @@ body {
 
   font-size: clamp(58px, 7vw, 100px);
 
-  line-height: 0.94;
+  line-height: 1.01;
 
-  letter-spacing: -5px;
+  letter-spacing: -2px;
 
   font-weight: 700;
 
-  color: #111;
+  color: var(--black);
 }
 
 .ipo-story h2 span {
   display: block;
 
-  color: #d29d00;
+  color: var(--primary-color);
 }
 
 .ipo-story-description {
@@ -452,7 +459,7 @@ body {
 
   margin: 38px auto 0;
 
-  color: #666;
+  color: var(--dark-gray);
 
   font-size: clamp(16px, 1.4vw, 19px);
 
@@ -653,7 +660,7 @@ body {
 
   justify-content: center;
 
-  color: #111;
+  color: var(--black);
 
   font-size: clamp(42px, 5vw, 70px);
 
@@ -665,7 +672,7 @@ body {
 }
 
 .ipo-stat-number span:last-child {
-  color: #d29d00;
+  color: var(--primary-color);
 
   font-size: 0.55em;
 
@@ -675,7 +682,7 @@ body {
 .ipo-stat p {
   margin-top: 13px;
 
-  color: #777;
+  color: var(--dark-gray);
 
   font-size: 13px;
 
@@ -703,7 +710,7 @@ body {
 .ipo-bottom-line p {
   margin: 0;
 
-  color: #666;
+  color: var(--dark-gray);
 
   font-size: clamp(16px, 1.7vw, 21px);
 
@@ -715,7 +722,7 @@ body {
 }
 
 .ipo-bottom-line strong {
-  color: #111;
+  color: var(--black);
 
   font-weight: 700;
 }
@@ -942,13 +949,13 @@ body {
 
   letter-spacing: -0.055em;
 
-  font-weight: 600;
+  font-weight: 700;
 
-  color: #efc34b;
+  color: var(--black);
 }
 
 .app-features-heading h2 span {
-  color: #efc34b;
+  color: var(--primary-color);
 }
 
 .app-features-heading p {
@@ -960,7 +967,7 @@ body {
 
   letter-spacing: -0.01em;
 
-  color: #38527a;
+  color: var(--dark-gray);
 }
 
 /* =========================================
@@ -976,7 +983,7 @@ body {
 
   height: 520px;
 
-  margin: 35px auto 0;
+  margin: 35px auto 80px;
 
   display: flex;
 
@@ -1055,7 +1062,7 @@ body {
 
   text-align: center;
 
-  color: #202c42;
+  color: var(--black);
 
   font-weight: 500;
 }
@@ -1218,7 +1225,7 @@ body {
 
   padding: 9px;
 
-  background: #111;
+  background: var(--black);
 
   border-radius: 43px;
 
@@ -1270,16 +1277,13 @@ body {
 
   border-radius: 35px;
 
-  background: #ffffff;
+  background: var(--light-gray);
 }
 
 .app-device-screen img {
   display: block;
-
   width: 100%;
   height: 100%;
-
-  object-fit: cover;
 }
 
 /* =========================================
@@ -1296,14 +1300,14 @@ body {
   top: 16px;
   left: 50%;
 
-  width: 88px;
-  height: 25px;
+  width: 75px;
+  height: 20px;
 
   transform: translateX(-50%);
 
   border-radius: 20px;
 
-  background: #050505;
+  background: var(--black);
 }
 
 /* =========================================
@@ -1325,7 +1329,7 @@ body {
 
   transform: translateX(-50%);
 
-  background: #ffffff;
+  background: var(--light-gray);
 
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
@@ -1543,8 +1547,8 @@ body {
 .ipo-features-section {
   position: relative;
   width: 100%;
-  padding: 120px 40px 140px;
-  background: #ffffff;
+  padding: 50px 40px 40px;
+  background: var(--light-gray);
   overflow: hidden;
 }
 
@@ -1572,7 +1576,7 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  color: #efc34b;
+  color: var(--primary-color);
 }
 
 .ipo-features-heading h2 {
@@ -1587,7 +1591,7 @@ body {
 }
 
 .ipo-features-heading h2 span {
-  color: #efc34b;
+  color: var(--primary-color);
 }
 
 .ipo-features-heading p {
@@ -1598,7 +1602,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
 
-  color: #6b7078;
+  color: var(--dark-gray);
 }
 
 /* =========================================
@@ -1702,8 +1706,8 @@ body {
 }
 
 .ipo-feature-highlight-icon img {
-  width: 34px;
-  height: 34px;
+  width: 54px;
+  height: 54px;
 
   object-fit: contain;
 }
@@ -1730,7 +1734,7 @@ body {
   font-weight: 700;
   letter-spacing: 2px;
 
-  color: #efc34b;
+  color: var(--primary-color);
 }
 
 .ipo-feature-highlight h3 {
@@ -1751,7 +1755,7 @@ body {
   font-size: 15px;
   line-height: 1.7;
 
-  color: #666b73;
+  color: var(--dark-gray);
 }
 
 /* =========================================
@@ -1768,7 +1772,7 @@ body {
 
   text-decoration: none;
 
-  color: #efc34b;
+  color: var(--primary-color);
 
   transition:
     gap 0.3s ease,
@@ -1815,7 +1819,7 @@ body {
   border: 1px solid #e5e7eb;
   border-radius: 18px;
 
-  background: #ffffff;
+  background: var(--light-gray);
 
   overflow: hidden;
 
@@ -1840,7 +1844,7 @@ body {
   width: 0;
   height: 3px;
 
-  background: #efc34b;
+  background: var(--primary-color);
 
   transition: width 0.4s ease;
 }
@@ -1877,8 +1881,8 @@ body {
 }
 
 .ipo-feature-card-icon img {
-  width: 25px;
-  height: 25px;
+  width: 45px;
+  height: 45px;
 
   object-fit: contain;
 }
@@ -1933,7 +1937,7 @@ body {
 
   font-size: 15px;
 
-  color: #efc34b;
+  color: var(--primary-color);
 
   opacity: 0;
 
@@ -2124,7 +2128,7 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  color: #ffa318;
+  color: var(--primary-color);
 }
 
 .business-features-heading h2 {
@@ -2139,7 +2143,7 @@ body {
 }
 
 .business-features-heading h2 span {
-  color: #ffa318;
+  color: var(--primary-color);
 }
 
 .business-features-heading p {
@@ -2214,7 +2218,7 @@ body {
 
   background: #ffffff;
 
-  border: 2px solid #ffa318;
+  border: 2px solid var(--primary-color);
   border-radius: 11px;
 
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
@@ -2503,7 +2507,7 @@ body {
 
   letter-spacing: 0.16em;
 
-  color: #efb64b;
+  color: var(--primary-color);
 }
 
 .download-content h2 {
@@ -2521,7 +2525,7 @@ body {
 }
 
 .download-content h2 span {
-  color: #efb64b;
+  color: var(--primary-color);
 }
 
 .download-content p {
