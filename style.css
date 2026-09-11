@@ -14,9 +14,9 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  /* -webkit-user-select: none;
+  -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none; */
+  user-select: none;
 }
 
 html,
@@ -3022,13 +3022,7 @@ body {
 .footer-top {
   display: grid;
 
-  grid-template-columns:
-    1.5fr
-    1fr
-    1fr
-    1fr
-    1fr
-    1.25fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1.25fr;
 
   gap: 45px;
 
