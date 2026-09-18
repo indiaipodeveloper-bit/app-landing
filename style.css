@@ -941,7 +941,7 @@ body {
 .app-features-heading h2 {
   margin: 0;
 
-  font-size: clamp(52px, 5.2vw, 78px);
+  font-size: clamp(52px, 5.2vw, 75px);
 
   line-height: 0.98;
 
