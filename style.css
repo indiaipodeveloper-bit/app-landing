@@ -516,9 +516,9 @@ body {
 /* Top right */
 
 .ipo-float-2 {
-  top: 14%;
+  top: 10%;
 
-  right: 12%;
+  right: 10%;
 
   width: 150px;
 
@@ -787,7 +787,7 @@ body {
   }
 
   .ipo-float-2 {
-    top: 12%;
+    top: 5%;
 
     right: 5%;
 
@@ -1161,7 +1161,7 @@ body {
 
   z-index: 5;
 
-  width: clamp(210, 22vw, 300px);
+  width: clamp(190px, 21vw, 285px);
   flex-shrink: 0;
 
   display: flex;
@@ -1173,7 +1173,7 @@ body {
   overflow: visible;
 }
 
-.app-device {
+/* .app-device {
   position: relative;
 
   width: clamp(200px, 20vw, 280px);
@@ -1189,12 +1189,6 @@ body {
     0 35px 60px rgba(0, 0, 0, 0.2),
     0 10px 20px rgba(0, 0, 0, 0.1);
 
-  /*
-    Initial state:
-    phone is below the visible area
-    and slightly blurry.
-  */
-
   opacity: 0;
 
   filter: blur(10px);
@@ -1205,13 +1199,26 @@ body {
     opacity 1s ease,
     filter 1.2s ease,
     transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+} */
+
+.app-device-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(180px);
+  transition: opacity 1s ease, filter 1.2s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
 }
 
 /* =========================================
    PHONE ACTIVE
 ========================================= */
 
-.app-features-section.is-visible .app-device {
+.app-features-section.is-visible .app-device-image {
   opacity: 1;
 
   filter: blur(0);
@@ -1223,7 +1230,7 @@ body {
    PHONE SCREEN
 ========================================= */
 
-.app-device-screen {
+/* .app-device-screen {
   position: relative;
 
   width: 100%;
@@ -1240,13 +1247,13 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-}
+} */
 
 /* =========================================
    PHONE DYNAMIC ISLAND / NOTCH
 ========================================= */
 
-.app-device::before {
+/* .app-device::before {
   content: "";
 
   position: absolute;
@@ -1264,7 +1271,7 @@ body {
   border-radius: 20px;
 
   background: var(--black);
-}
+} */
 
 /* =========================================
    BOTTOM CURVE
@@ -1404,7 +1411,7 @@ body {
 
 @media (max-width: 600px) {
   .app-features-section {
-    padding: 70px 14px 70px;
+    padding: 50px 14px 0px;
   }
 
   .app-features-heading h2 {
@@ -1675,7 +1682,7 @@ body {
 
 .ipo-feature-highlight h3 {
   margin: 0 0 18px;
-
+  font-weight: 600;
   font-size: clamp(32px, 3vw, 44px);
   line-height: 1;
   letter-spacing: -1px;
@@ -1965,7 +1972,7 @@ body {
 
 @media (max-width: 650px) {
   .ipo-features-section {
-    padding: 80px 20px 100px;
+    padding: 50px 20px 50px;
   }
 
   .ipo-features-heading {
@@ -2293,7 +2300,7 @@ body {
 
 @media (max-width: 650px) {
   .business-features-section {
-    padding: 80px 20px 110px;
+    padding: 50px 20px 110px;
   }
 
   .business-features-heading {
@@ -2748,7 +2755,7 @@ body {
 
 @media (max-width: 700px) {
   .download-section {
-    padding: 80px 18px 0;
+    padding: 0px 18px 0;
   }
 
   .download-container {
@@ -2772,7 +2779,7 @@ body {
   }
 
   .download-content h2 {
-    font-size: 37px;
+    font-size: 35px;
   }
 
   .download-content p {
